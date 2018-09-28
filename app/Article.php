@@ -13,4 +13,9 @@ class Article extends Model
      * @var array
      */
     protected $fillable = ['title','body','user_id'];
+
+    public function hasManyComments()
+    {
+        return $this->hasMany('App\Comment', 'article_id', 'id');
+    }
 }
