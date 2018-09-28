@@ -34,7 +34,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item"><a class="nav-link" href="{{ url('admin') }}">后台首页</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('admin/comments') }}">评论管理</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
