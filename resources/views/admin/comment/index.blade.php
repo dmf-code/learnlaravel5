@@ -12,30 +12,35 @@
                                 {!! implode('<br>', $errors->all()) !!}
                             </div>
                         @endif
+                        <table class="table table-striped">
+                            <tr>
+                                <th>#</th>
+                                <th>名称</th>
+                                <th>邮箱</th>
+                                <th>网站</th>
+                                <th>文章ID</th>
+                                <th>内容</th>
+                                <th>编辑</th>
+                            </tr>
                         @foreach ($comments as $comment)
-                            <hr>
-                            <div class="comment">
-                                <ul>
-                                    <li>{{ $comment->id }}</li>
-                                    <li>{{ $comment->nickname }}</li>
-                                    <li>{{ $comment->email }}</li>
-                                    <li>{{ $comment->website }}</li>
-                                    <li>{{ $comment->article_id }}</li>
-                                </ul>
-                                <div class="content">
-                                    <p>
-                                        {{ $comment->content }}
-                                    </p>
-                                </div>
-                            </div>
-                            <a href="{{ url('admin/comments/'.$comment->id.'/edit') }}" class="btn btn-success">编辑</a>
-                            <form action="{{ url('admin/comments/'.$comment->id) }}" method="POST" style="display: inline;">
-                                {{ method_field('DELETE') }}
-                                {{ csrf_field() }}
-                                <button type="submit" class="btn btn-danger">删除</button>
-                            </form>
+                                        <tr>
+                                            <td>{{ $comment->id }}</td>
+                                            <td>{{ $comment->nickname }}</td>
+                                            <td>{{ $comment->email }}</td>
+                                            <td>{{ $comment->website }}</td>
+                                            <td>{{ $comment->article_id }}</td>
+                                            <td>{{ $comment->content }}</td>
+                                            <td>
+                                                <a href="{{ url('admin/comments/'.$comment->id.'/edit') }}" class="btn btn-success">编辑</a>
+                                                <form action="{{ url('admin/comments/'.$comment->id) }}" method="POST" style="display: inline;">
+                                                    {{ method_field('DELETE') }}
+                                                    {{ csrf_field() }}
+                                                    <button type="submit" class="btn btn-danger">删除</button>
+                                                </form>
+                                            </td>
+                                        </tr>
                         @endforeach
-
+                        </table>
                     </div>
                 </div>
             </div>
